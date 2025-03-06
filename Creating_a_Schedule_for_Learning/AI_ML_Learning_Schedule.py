@@ -23,14 +23,13 @@ ai_engineer_courses = [
 ]
 
 # Calculate start and end dates for each AI course (1 per week)
-ai_start_dates = pd.date_range(start="2025-03-17", periods=12, freq="W-MON")
+ai_start_dates = pd.date_range(start="2025-04-01", periods=12, freq="W-MON")
 ai_end_dates = ai_start_dates + pd.Timedelta(days=6)
 
 # Update course schedule
 courses = [
-    ("Data Manipulation with Pandas", "2025-02-26", "2025-03-02"),
     ("Introduction to Statistics with Python", "2025-03-03", "2025-03-09"),
-    ("Supervised Learning with Scikit-Learn", "2025-03-10", "2025-03-16"),
+    ("AI Driven AC Engine Fault Detection Proyect", "2025-03-06", "2025-03-27"),
 ]
 
 # Append AI Engineer courses
@@ -57,7 +56,7 @@ start_of_year = datetime.datetime(min_date.year, 2, 1)  # Set to January 1st of 
 # Format plot
 ax.set_xlabel("Date")
 ax.set_ylabel("Course")
-ax.set_title("AI & ML Learning Plan Gantt Chart (With Start Dates)")
+ax.set_title("AI & ML Learning Plan Gantt Chart")
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%b %Y"))
 ax.set_xlim(start_of_year, max(dates))  # Extend to the max date
 plt.xticks(rotation=45)
