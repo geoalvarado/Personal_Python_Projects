@@ -1,0 +1,26 @@
+# A Tool to have an LLM as a coding assistant
+
+
+import requests
+
+def ask_llm(prompt, model="codellama"):
+    url = "http://localhost:11434/api/generate"
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False
+    }
+
+    response = requests.post(url, json=payload)
+    return response.json()['response']
+
+if __name__ == "__main__":
+    prompt = "Write a Python function to merge two dictionaries."
+    answer = ask_llm(prompt)
+    print(answer)
+
+while True:
+    user_input = input("Prompt: ")
+    if user_input.lower() in ["exit", "quit"]:
+        break
+    print(ask_llm(user_input))
